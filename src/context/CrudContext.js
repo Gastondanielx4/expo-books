@@ -112,7 +112,7 @@ const CrudProvider = ({ children }) => {
 
   const deleteData = (id) => {
     let isDelete = window.confirm(
-      `Estas Seguro de eleminar el registro con el id ${id}`
+      `Estas Seguro de eliminar el registro con el id ${id}`
     );
     if (isDelete) {
       let endpoint = `${url}/${id}`;

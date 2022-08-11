@@ -57,7 +57,7 @@ const Modals = ({ el }) => {
                 <TextField
                   size="small"
                   id="outlined-basic"
-                  label="Nombre"
+                  label="Name"
                   variant="outlined"
                   type="text"
                   name="name"
@@ -68,7 +68,7 @@ const Modals = ({ el }) => {
                 />
                 <TextField
                   id="outlined-multiline-static"
-                  label="Descripción"
+                  label="Description"
                   name="description"
                   multiline
                   rows={4}
@@ -81,7 +81,7 @@ const Modals = ({ el }) => {
                   <TextField
                     size="small"
                     id="outlined-basic"
-                    label="Fecha de Publicación"
+                    label="Publication Date"
                     variant="outlined"
                     type="text"
                     name="publicationDate"
@@ -93,7 +93,7 @@ const Modals = ({ el }) => {
                   <TextField
                     size="small"
                     id="outlined-basic"
-                    label="Páginas"
+                    label="Pages"
                     variant="outlined"
                     type="text"
                     name="pages"
@@ -106,7 +106,7 @@ const Modals = ({ el }) => {
                 <TextField
                   size="small"
                   id="outlined-basic"
-                  label="URL Imagen"
+                  label="URL Image"
                   variant="outlined"
                   type="text"
                   name="image"
@@ -136,7 +136,7 @@ const Modals = ({ el }) => {
                   value="Enviar"
                   endIcon={<SendIcon />}
                 >
-                  Enviar
+                  Send
                 </Button>
               </div>
             </div>

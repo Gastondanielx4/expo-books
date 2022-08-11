@@ -13,7 +13,7 @@ const Modal = ({ children, isOpen, closeModal }) => {
           onClick={closeModal}
           endIcon={<CloseIcon />}
         >
-          Cerrar
+          Close
         </Button>
         {children}
       </div>

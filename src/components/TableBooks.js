@@ -25,9 +25,7 @@ export const TableBooks = () => {
 
   return (
     <div>
-      <h5 style={{ borderBottom: "1.5px thin solid black" }}>
-        Tabla de Libros
-      </h5>
+      <h5 style={{ borderBottom: "1.5px thin solid black" }}>Book List</h5>
       <TableContainer
         style={{ overflow: "scroll", maxHeight: "70vh" }}
         component={Paper}
@@ -49,8 +47,8 @@ export const TableBooks = () => {
               >
                 Name
               </StyledTableCell>
-              <StyledTableCell align="right">Fecha publicación</StyledTableCell>
-              <StyledTableCell>Acciones</StyledTableCell>
+              <StyledTableCell align="right">Publication Date</StyledTableCell>
+              <StyledTableCell>Actions</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>

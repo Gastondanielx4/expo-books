@@ -33,7 +33,7 @@ export const FormCreateBook = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-      <h5>Formulario</h5>
+      <h5>Form</h5>
       <form
         style={{
           display: "flex",
@@ -46,7 +46,7 @@ export const FormCreateBook = () => {
         <TextField
           size="small"
           id="outlined-basic"
-          label="Nombre"
+          label="Name"
           variant="outlined"
           type="text"
           name="name"
@@ -55,7 +55,7 @@ export const FormCreateBook = () => {
         />
         <TextField
           id="outlined-multiline-static"
-          label="Descripción"
+          label="Description"
           name="description"
           multiline
           rows={4}
@@ -65,7 +65,7 @@ export const FormCreateBook = () => {
         <TextField
           size="small"
           id="outlined-basic"
-          label="Páginas"
+          label="Pages"
           variant="outlined"
           type="text"
           name="pages"
@@ -75,7 +75,7 @@ export const FormCreateBook = () => {
         <TextField
           size="small"
           id="outlined-basic"
-          label="Fecha de Publicación"
+          label="Publication Date"
           variant="outlined"
           type="text"
           name="publicationDate"
@@ -94,7 +94,7 @@ export const FormCreateBook = () => {
         <TextField
           size="small"
           id="outlined-basic"
-          label="URL Imagen"
+          label="URL Image"
           variant="outlined"
           type="text"
           name="image"
