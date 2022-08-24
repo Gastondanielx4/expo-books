@@ -37,7 +37,7 @@ export const TableBooks = () => {
         >
           <TableHead>
             <TableRow>
-              <StyledTableCell align="center">Portada</StyledTableCell>
+              <StyledTableCell align="center">Cover</StyledTableCell>
               <StyledTableCell
                 style={{
                   textOverflow: "ellipsis",

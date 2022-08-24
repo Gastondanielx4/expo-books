@@ -1,5 +1,3 @@
-Link Netlify ---- > https://graceful-dolphin-476a64.netlify.app/   <------Link Netlify
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

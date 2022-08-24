@@ -10,6 +10,9 @@ const CrudProvider = ({ children }) => {
   const [searchBook, setSearchBook] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [alertOk, setAlertOk] = useState(false);
+  const [contentAlert, setContentAlert] = useState({});
+  const [isDelete, setIsDelete] = useState(null);
 
   const handleSearch = (e) => {
     setSearchBook(e.target.value);
@@ -17,7 +20,27 @@ const CrudProvider = ({ children }) => {
   const handleResetFilter = () => {
     setSearchBook("");
   };
+  const handleDelete = (confirm) => {
+    if (confirm) {
+      let endpoint = `${url}/${isDelete}`;
+      let options = {
+        headers: {
+          "content-type": "application/json",
+          "x-token": token,
+        },
+      };
 
+      api.del(endpoint, options).then((res) => {
+        if (!res.err) {
+          apiGet();
+        } else {
+          setError(res);
+        }
+      });
+    } else {
+      return;
+    }
+  };
   let api = helpHttp();
   let url = "https://mern-books-server.herokuapp.com/api/books/";
   let options = {
@@ -84,6 +107,12 @@ const CrudProvider = ({ children }) => {
     api.post(urlPost, options).then((res) => {
       if (!res.err) {
         apiGet();
+        setContentAlert({
+          title: "Book added!",
+          icon: "success",
+          type: "show",
+        });
+        setAlertOk(true);
       } else {
         setError(res);
       }
@@ -104,36 +133,26 @@ const CrudProvider = ({ children }) => {
     api.put(endpoint, options).then((res) => {
       if (!res.err) {
         apiGet();
+        setContentAlert({
+          title: "Book updated!",
+          icon: "success",
+          type: "show",
+        });
+        setAlertOk(true);
       } else {
         setError(res);
       }
     });
   };
 
-  const deleteData = (id) => {
-    let isDelete = window.confirm(
-      `Estas Seguro de eliminar el registro con el id ${id}`
-    );
-    if (isDelete) {
-      let endpoint = `${url}/${id}`;
-      let options = {
-        headers: {
-          "content-type": "application/json",
-          "x-token": token,
-        },
-      };
-
-      api.del(endpoint, options).then((res) => {
-        console.log(res);
-        if (!res.err) {
-          apiGet();
-        } else {
-          setError(res);
-        }
-      });
-    } else {
-      return;
-    }
+  const deleteData = (id, name) => {
+    setContentAlert({
+      title: name,
+      icon: "",
+      type: "confirm",
+    });
+    setAlertOk(true);
+    setIsDelete(id);
   };
   const data = {
     booksApi,
@@ -146,6 +165,11 @@ const CrudProvider = ({ children }) => {
     updateData,
     error,
     loading,
+    alertOk,
+    setAlertOk,
+    contentAlert,
+    setIsDelete,
+    handleDelete,
   };
   return <CrudContext.Provider value={data}>{children}</CrudContext.Provider>;
 };

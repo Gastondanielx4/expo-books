@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import React from "react";
-
 export const useModal = (initialValue = false) => {
   const [isOpen, setIsOpen] = useState(initialValue);
 

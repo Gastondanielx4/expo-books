@@ -5,7 +5,7 @@ import TableRow from "@mui/material/TableRow";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useContext, useEffect, useState } from "react";
 import CrudContext from "../context/CrudContext";
-import Modals from "./Modals";
+import ButtonEditOpenModal from "./ButtonEditOpenModal";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -42,10 +42,11 @@ export const TableRowBook = ({ el }) => {
     if (publicationDate.length <= 10) {
       setPublishDate(publicationDate);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleDelete = () => {
-    deleteData(id);
+    deleteData(id, name);
   };
 
   return (
@@ -68,7 +69,7 @@ export const TableRowBook = ({ el }) => {
           <IconButton onClick={handleDelete} aria-label="delete">
             <DeleteIcon />
           </IconButton>
-          <Modals el={el} publishDate={publishDate} />
+          <ButtonEditOpenModal el={el} />
         </div>
       </StyledTableCell>
     </StyledTableRow>

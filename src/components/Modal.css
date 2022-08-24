@@ -19,10 +19,10 @@
   padding: 2rem 1rem 1rem 1rem;
   min-width: 70vw;
   max-width: 70vw;
-  min-height: 80vh;
+  min-height: 70vh;
   overflow-y: auto;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 
 .modal-close {

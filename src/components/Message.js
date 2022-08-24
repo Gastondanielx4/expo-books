@@ -3,7 +3,7 @@ import React from "react";
 const Message = ({ msg, bgColor }) => {
   let styles = {
     padding: "1rem",
-    marginRight: "5rem",
+    marginRight: "0rem",
     marginBottom: "1rem",
     textAlign: "center",
     color: "#fff",

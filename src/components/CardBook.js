@@ -14,7 +14,7 @@ function CardBook({ el }) {
   let navigate = useNavigate();
 
   return (
-    <Card style={{ width: "18rem", borderRadius: "0" }}>
+    <Card style={{ width: "17rem", borderRadius: "0" }}>
       <Card.Img
         variant="top"
         src={image}
