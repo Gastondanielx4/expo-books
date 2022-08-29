@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { token } from "../helper/token";
+import { token1 } from "../helper/token1";
 import CrudContext from "../context/CrudContext";
 
 const CustomizedButton = styled(Button)`
@@ -26,7 +26,7 @@ export const OneBookPage = () => {
   let url = `https://mern-books-server.herokuapp.com/api/books/${id}`;
   let options = {
     headers: {
-      "x-token": token,
+      "x-token": token1,
     },
   };
 

@@ -25,14 +25,6 @@ const ButtonEditOpenModal = ({ el }) => {
   initialForm.excerpt = excerpt;
   initialForm.image = image;
 
-  /* initialForm = {
-    name,
-    description,
-    pages,
-    publicationDate,
-    excerpt,
-    image,
-  }; */
   const [isOpenModal1, openModal1, closeModal1] = useModal(false);
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
@@ -43,10 +35,6 @@ const ButtonEditOpenModal = ({ el }) => {
   useEffect(() => {
     setErrors(validationsForm(form));
   }, [form]);
-
-  /*  const handleBlur = (e) => {
-    setErrors(validationsForm(form));
-  }; */
   const sendForm = (e) => {
     e.preventDefault();
     updateData(form, id);
@@ -90,7 +78,6 @@ const ButtonEditOpenModal = ({ el }) => {
                   name="name"
                   style={{ margin: "0.5rem 0" }}
                   onChange={handleChange}
-                  //onBlur={handleBlur}
                   defaultValue={form.name}
                   required
                   helperText={errors.name}
@@ -104,7 +91,6 @@ const ButtonEditOpenModal = ({ el }) => {
                   rows={4}
                   style={{ margin: "0.5rem 0" }}
                   onChange={handleChange}
-                  // onBlur={handleBlur}
                   defaultValue={form.description}
                   required
                   helperText={errors.description}
@@ -120,7 +106,6 @@ const ButtonEditOpenModal = ({ el }) => {
                     name="publicationDate"
                     style={{ margin: "0.5rem 1rem 0.5rem 0", width: "15rem" }}
                     onChange={handleChange}
-                    //onBlur={handleBlur}
                     defaultValue={form.publicationDate}
                     required
                     helperText={errors.publicationDate}
@@ -135,7 +120,6 @@ const ButtonEditOpenModal = ({ el }) => {
                     name="pages"
                     style={{ margin: "0.5rem 0" }}
                     onChange={handleChange}
-                    //onBlur={handleBlur}
                     defaultValue={form.pages}
                     required
                     helperText={errors.pages}
@@ -151,7 +135,6 @@ const ButtonEditOpenModal = ({ el }) => {
                   name="image"
                   style={{ margin: "0.5rem 0" }}
                   onChange={handleChange}
-                  //onBlur={handleBlur}
                   value={form.image}
                   required
                   helperText={errors.image}
@@ -168,7 +151,6 @@ const ButtonEditOpenModal = ({ el }) => {
                 rows={12}
                 style={{ width: "100%", margin: "1rem 0" }}
                 onChange={handleChange}
-                //onBlur={handleBlur}
                 defaultValue={form.excerpt}
                 required
                 helperText={errors.excerpt}

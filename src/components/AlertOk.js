@@ -3,7 +3,8 @@ import Swal from "sweetalert2";
 import CrudContext from "../context/CrudContext";
 
 export const AlertOk = () => {
-  const { setAlertOk, contentAlert, handleDelete } = useContext(CrudContext);
+  const { setAlertOk, contentAlert, handleDelete, error } =
+    useContext(CrudContext);
   const { title, icon, type } = contentAlert;
   if (type === "show") {
     Swal.fire({
@@ -27,7 +28,11 @@ export const AlertOk = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         handleDelete(true);
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        if (error === null) {
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        } else {
+          Swal.fire(error);
+        }
       }
     });
     setAlertOk(false);

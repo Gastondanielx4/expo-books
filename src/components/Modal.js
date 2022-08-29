@@ -7,13 +7,26 @@ const Modal = ({ children, isOpen, closeModal }) => {
   return (
     <article className={`modal ${isOpen && "is-open"}`} onClick={closeModal}>
       <div className="modal-container" onClick={handleModalContainerClick}>
+        <h4 style={{ marginLeft: "2rem" }}>Edit Book</h4>
+        <hr
+          style={{
+            fontSize: "2rem",
+            border: "none",
+            backgroundColor: "#222",
+            height: "0.2rem",
+          }}
+        />
         <Button
-          style={{ position: "absolute", top: "1rem", right: "1rem" }}
+          style={{
+            position: "absolute",
+            top: "1rem",
+            right: "1rem",
+            textAlign: "center",
+          }}
           variant="contained"
           onClick={closeModal}
-          endIcon={<CloseIcon />}
         >
-          Close
+          {<CloseIcon />}
         </Button>
         {children}
       </div>

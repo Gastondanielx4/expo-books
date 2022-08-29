@@ -21,7 +21,7 @@ const CustomizedButton = styled(Button)`
 `;
 
 export const FormCreateBook = () => {
-  const { addBook } = useContext(CrudContext);
+  const { addBook, error } = useContext(CrudContext);
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [sendState, setSendState] = useState(false);
@@ -61,6 +61,12 @@ export const FormCreateBook = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <h5>Form</h5>
+      {error && (
+        <Message
+          msg={`Error ${error.status}: ${error.statusText}`}
+          bgColor="#dc3545"
+        />
+      )}
       <form
         style={{
           display: "flex",

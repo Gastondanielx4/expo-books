@@ -4,6 +4,7 @@ import { IconButton, styled } from "@mui/material";
 import CrudContext from "../context/CrudContext";
 import Edit from "@mui/icons-material/Edit";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const CustomTextField = styled(TextField)`
   margin: 2rem 0 2rem 0;
@@ -18,7 +19,9 @@ const CustomIconButton = styled(IconButton)`
   border: 5px solid #3a50af;
 `;
 export const SearchBook = () => {
-  const { handleSearch, handleResetFilter } = useContext(CrudContext);
+  const { handleSearch } = useContext(CrudContext);
+  const { user } = useAuth();
+
   let navigate = useNavigate();
 
   return (
@@ -34,10 +37,15 @@ export const SearchBook = () => {
         />
       </div>
       <CustomIconButton
-        onClick={() => {
-          navigate(`/edit`);
-          handleResetFilter();
-        }}
+        onClick={
+          user
+            ? () => {
+                navigate(`/edit`);
+              }
+            : () => {
+                navigate(`/login`);
+              }
+        }
       >
         <Edit fontSize="inherit" />
       </CustomIconButton>

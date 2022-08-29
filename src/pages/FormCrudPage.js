@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useContext } from "react";
 import CrudContext from "../context/CrudContext";
 import { AlertOk } from "../components/AlertOk";
+import { useAuth } from "../context/AuthContext";
 
 const CustomizedButton = styled(Button)`
   background-color: #3a51b0;
@@ -17,6 +18,7 @@ const CustomizedButton = styled(Button)`
 export const FormCrudPage = () => {
   let navigate = useNavigate();
   const { alertOk } = useContext(CrudContext);
+  const { nameOfUser } = useAuth();
 
   return (
     <div>
@@ -25,7 +27,9 @@ export const FormCrudPage = () => {
         <CustomizedButton onClick={() => navigate(`/`)}>
           {<ArrowBackIcon></ArrowBackIcon>} Back to Books
         </CustomizedButton>
-        <h4 style={{ textAlign: "center" }}>Books Administrator</h4>
+        <h4
+          style={{ textAlign: "center" }}
+        >{`Books Administrator - (${nameOfUser})`}</h4>
       </div>
       <div className="grid-1-2">
         <FormCreateBook />
