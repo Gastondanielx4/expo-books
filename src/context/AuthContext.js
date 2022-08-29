@@ -42,18 +42,16 @@ export default function AuthProvider({ children }) {
         });
         setAlertOk(true);
         setToken(res.user.token);
-        console.log(res);
         setUser(true);
         setNameOfUser(res.user.email);
       } else {
         setContentAlert({
-          title: `User or password incorrect`,
+          title: `Incorrect 'User' or 'password'`,
           icon: "error",
           type: "show",
         });
         setAlertOk(true);
         setError(res);
-        console.log(res);
         setTimeout(() => {
           setError(null);
         }, 8000);

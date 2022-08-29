@@ -15,7 +15,6 @@ const LoginPage = () => {
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    console.log(emailRef.current.value, passwordRef.current.value);
     authLogin(emailRef.current.value, passwordRef.current.value);
   };
 
