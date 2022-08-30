@@ -17,6 +17,9 @@ const LoginPage = () => {
     e.preventDefault();
     authLogin(emailRef.current.value, passwordRef.current.value);
   };
+  const handleEnterWhithoutAdmin = () => {
+    navigate(`/edit`);
+  };
 
   return (
     <div>
@@ -64,6 +67,9 @@ const LoginPage = () => {
                   type="password"
                   ref={passwordRef}
                   required
+                  style={{
+                    margin: "0 0 1rem 0",
+                  }}
                 ></Form.Control>
               </Form.Group>
               <Button type="submit" className="w-100 mt-2">
@@ -77,6 +83,17 @@ const LoginPage = () => {
             >
               {<ArrowBackIcon></ArrowBackIcon>} Back to Books
             </Button>
+            <Button
+              variant="light"
+              style={{
+                margin: "1rem auto",
+                color: "#3a51b0",
+                backgroundColor: "white",
+              }}
+              onClick={handleEnterWhithoutAdmin}
+            >
+              Enter whithout "Admin" permission
+            </Button>{" "}
           </Card.Body>
         </Card>
       </div>

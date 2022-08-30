@@ -5,14 +5,14 @@ import CrudContext from "../context/CrudContext";
 export const AlertOk = () => {
   const { setAlertOk, contentAlert, handleDelete, error } =
     useContext(CrudContext);
-  const { title, icon, type } = contentAlert;
+  const { title, icon, type, timer = 3000 } = contentAlert;
   if (type === "show") {
     Swal.fire({
       position: "center",
       icon,
       title,
       showConfirmButton: false,
-      timer: 3000,
+      timer,
     });
     setAlertOk(false);
   }
