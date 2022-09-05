@@ -32,7 +32,11 @@ export const TableBooks = () => {
       >
         <Table
           stickyHeader
-          sx={{ minWidth: 700 }}
+          sx={
+            {
+              /* minWidth: 700 */
+            }
+          }
           aria-label="customized table"
         >
           <TableHead>

@@ -87,7 +87,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 100vw;
+  width: 90vw;
 }
 form {
   margin-bottom: 1rem;
@@ -159,6 +159,13 @@ td {
     align-items: start;
     gap: 2rem;
   }
+  .grid-1-2 {
+    display: grid;
+    margin: 1rem 2rem;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 2rem;
+  }
 }
 @media screen and (max-width: 1024px) {
   .grid-1-4 {
@@ -182,5 +189,12 @@ td {
   }
   main {
     padding-left: 1rem;
+  }
+}
+@media screen and (max-width: 680px) {
+  .div-one-book {
+    flex-direction: column;
+    margin: 1.5rem 0.5rem 0 0;
+    align-items: center;
   }
 }

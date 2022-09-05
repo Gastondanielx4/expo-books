@@ -7,31 +7,33 @@ const CrudContext = createContext();
 
 const CrudProvider = ({ children }) => {
   const [booksApi, setBooksApi] = useState([]);
-  const [booksFilter, setBooksFilter] = useState([]);
+  const [booksFilter, setBooksFilter] = useState(booksApi);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [alertOk, setAlertOk] = useState(false);
   const [contentAlert, setContentAlert] = useState({});
   const [isDelete, setIsDelete] = useState(null);
   const [token, setToken] = useState(null);
+  const [searched, setSearched] = useState("");
 
   const handleSearch = (e) => {
     search(e.target.value);
+    setSearched(e.target.value);
   };
   const search = (searchBooks) => {
     const booksWithFilter = booksApi
-      .filter((el) => {
+      .filter((book) => {
         if (searchBooks === "") {
-          return el;
+          return book;
         } else if (
-          el.name.toLowerCase().includes(searchBooks.toLowerCase()) ||
-          el.description.toLowerCase().includes(searchBooks.toLowerCase())
+          book.name.toLowerCase().includes(searchBooks.toLowerCase()) ||
+          book.description.toLowerCase().includes(searchBooks.toLowerCase())
         ) {
-          return el;
+          return book;
         }
       })
-      .map((el) => {
-        return el;
+      .map((book) => {
+        return book;
       });
     setBooksFilter(booksWithFilter);
   };
@@ -61,6 +63,7 @@ const CrudProvider = ({ children }) => {
   };
   useEffect(() => {
     apiGet();
+    setBooksFilter(booksApi);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -171,6 +174,7 @@ const CrudProvider = ({ children }) => {
     setToken,
     setLoading,
     setContentAlert,
+    searched,
   };
   return <CrudContext.Provider value={data}>{children}</CrudContext.Provider>;
 };

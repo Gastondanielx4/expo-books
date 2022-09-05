@@ -56,9 +56,10 @@ export const TableRowBook = ({ el }) => {
       </StyledTableCell>
       <StyledTableCell
         style={{
-          textOverflow: "ellipsis",
+          /*  textOverflow: "ellipsis",
           overflow: "hidden",
-          whiteSpace: "nowrap",
+          whiteSpace: "nowrap", */
+          display: "-webkitBox",
         }}
       >
         {name}

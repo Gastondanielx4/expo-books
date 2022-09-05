@@ -8,9 +8,11 @@ import Tooltip from "@mui/material/Tooltip";
 import Logout from "@mui/icons-material/Logout";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import CrudContext from "../context/CrudContext";
 
 const AccountProfile = () => {
   const { nameOfUser, setUser, user } = useAuth();
+  const { setToken } = React.useContext(CrudContext);
   let navigate = useNavigate();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,6 +25,7 @@ const AccountProfile = () => {
   };
   const handleLogout = () => {
     setUser(null);
+    setToken("");
   };
   const handleLogIn = () => {
     if (!user) {

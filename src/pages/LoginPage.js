@@ -31,7 +31,7 @@ const LoginPage = () => {
           alignItems: "center",
         }}
       >
-        <Card style={{ width: "40vw", height: "50vh", marginTop: "3rem" }}>
+        <Card style={{ marginTop: "3rem" }}>
           <Card.Body
             style={{
               height: "60%",

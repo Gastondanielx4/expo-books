@@ -25,7 +25,7 @@ export const FormCrudPage = () => {
         <CustomizedButton onClick={() => navigate(`/`)}>
           {<ArrowBackIcon></ArrowBackIcon>} Back to Books
         </CustomizedButton>
-        <h4 style={{ textAlign: "center" }}>{`Books Administrator`}</h4>
+        <h4 style={{ textAlign: "center" }}>Books Admin</h4>
         <AccountProfile />
       </div>
       <div className="grid-1-2">
